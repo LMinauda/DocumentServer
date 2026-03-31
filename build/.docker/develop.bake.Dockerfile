@@ -17,14 +17,14 @@ FROM finalubuntu AS develop
 
     RUN apt-get update && \
         curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-        apt-get install -y nodejs npm openjdk-21-jdk wget zip brotli && \
+        apt-get install -y --no-install-recommends nodejs npm openjdk-21-jdk wget zip brotli && \
         npm install -g @yao-pkg/pkg grunt-cli && \
         rm -rf /var/lib/apt/lists/*
 
     RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
         apt-get -y update && \
         apt-get -y upgrade && \
-        apt-get -y install \
+        apt-get -y install --no-install-recommends \
                     git \
                     curl \
                     sudo \

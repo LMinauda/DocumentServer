@@ -25,7 +25,7 @@ ENV EO_LOG=${EO_LOG}
 ENV EO_CONF=${EO_CONF}
 
 RUN apt-get -y update && \
-    ACCEPT_EULA=Y apt-get -yq install \
+    ACCEPT_EULA=Y apt-get -yq install --no-install-recommends \
         postgresql postgresql-client redis-server rabbitmq-server \
         nginx sudo gdb nginx-extras supervisor jq util-linux && \
     rm -rf /var/lib/apt/lists/*

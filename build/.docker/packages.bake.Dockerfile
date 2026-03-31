@@ -26,7 +26,7 @@ RUN apt-get update && \
         devscripts dpkg-dev build-essential fakeroot debhelper \
         rpm m4 curl ca-certificates gnupg symlinks && \
     curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get install -y nodejs && \
+    apt-get install -y --no-install-recommends nodejs && \
     npm install -g @yao-pkg/pkg && \
     rm -rf /var/lib/apt/lists/*
 
